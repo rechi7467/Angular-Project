@@ -1,0 +1,19 @@
+nav {
+    background-color: palevioletred; // צבע הרקע של הניווט
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    a {
+        color: black;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+}

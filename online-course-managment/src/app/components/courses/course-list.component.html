@@ -1,0 +1,6 @@
+<div *ngFor="let course of courses">
+  <h3>{{ course.title }}</h3>
+  <p>{{ course.description }}</p>
+  <button *ngIf="!course.enrolled" (click)="enroll(course.id)">הצטרף לקורס</button>
+  <button *ngIf="course.enrolled" (click)="leave(course.id)">עזוב קורס</button>
+</div>

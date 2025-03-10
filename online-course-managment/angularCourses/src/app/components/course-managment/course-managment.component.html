@@ -1,0 +1,217 @@
+<div class="button-group">
+    <button mat-raised-button color="primary" (click)="addClick()">
+      <mat-icon>add</mat-icon> Add Course
+    </button>
+    <button mat-raised-button color="warn" (click)="deleteClick()">
+      <mat-icon>delete</mat-icon> Delete Course
+    </button>
+    <button mat-raised-button color="accent" (click)="updateClick()">
+      <mat-icon>edit</mat-icon> Update Course
+    </button>
+  </div>
+  
+  @if(addFlag && !isForbidden) {
+    <form [formGroup]="myForm" (ngSubmit)="onSubmitAdd()" class="form-container">
+      <mat-card>
+        <mat-card-title>Add Course</mat-card-title>
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" />
+            @if(myForm.get('title')?.hasError('required')) {
+              <mat-error>Title is required.</mat-error>
+            }
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Content</mat-label>
+            <input matInput type="text" formControlName="content" />
+            @if(myForm.get('content')?.hasError('required')) {
+              <mat-error>Content is required.</mat-error>
+            }
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit" [disabled]="myForm.invalid">
+            <mat-icon>save</mat-icon> Add
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  }
+  
+  @if(deleteFlag && !isForbidden) {
+    <form [formGroup]="myForm" (ngSubmit)="onSubmitDelete()" class="form-container">
+      <mat-card>
+        <mat-card-title>Delete Course</mat-card-title>
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Title of the course to delete</mat-label>
+            <input matInput formControlName="title" />
+            @if(myForm.get('title')?.hasError('required')) {
+              <mat-error>Title is required.</mat-error>
+            }
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="warn" type="submit" [disabled]="myForm.invalid">
+            <mat-icon>delete</mat-icon> Delete
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  }
+  
+  @if(updateFlag && !isForbidden) {
+    <form [formGroup]="myForm" (ngSubmit)="onSubmitUpdate()" class="form-container">
+      <mat-card>
+        <mat-card-title>Update Course</mat-card-title>
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>ID</mat-label>
+            <input matInput formControlName="id" />
+            @if(myForm.get('id')?.hasError('required')) {
+              <mat-error>ID is required.</mat-error>
+            }
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" />
+            @if(myForm.get('title')?.hasError('required')) {
+              <mat-error>Title is required.</mat-error>
+            }
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Content</mat-label>
+            <input matInput type="text" formControlName="content" />
+            @if(myForm.get('content')?.hasError('required')) {
+              <mat-error>Content is required.</mat-error>
+            }
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="accent" type="submit" [disabled]="myForm.invalid">
+            <mat-icon>edit</mat-icon> Update
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  }
+  
+  @if(isForbidden) {
+    <mat-card class="forbidden-card">
+      <mat-card-content>
+        <mat-icon color="warn">block</mat-icon> You are forbidden from performing this action.
+      </mat-card-content>
+    </mat-card>
+  }
+  
+
+
+<!-- 
+<button mat-button (click)="addClick()">add course</button>
+<button mat-button (click)="deleteClick()">delete course</button>
+<button mat-button (click)="updateClick()">change course</button>
+
+@if(addFlag && !isForbidden){
+<form [formGroup]="myForm" (ngSubmit)="onSubmitAdd()" class="form-container">
+    <mat-card>
+        <mat-card-content>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" />
+                @if(myForm.get('title')?.hasError('required')){
+                <mat-error>
+                    title is required.
+                </mat-error>}
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>content</mat-label>
+                <input matInput type="text" formControlName="content" />
+                @if(myForm.get('content')?.hasError('required')){
+                <mat-error>
+                    Password is required.
+                </mat-error>}
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="myForm.invalid">
+                add
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>
+}
+
+@if(deleteFlag && !isForbidden){
+<form [formGroup]="myForm" (ngSubmit)="onSubmitDelete()" class="form-container">
+    <mat-card>
+        <mat-card-content>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Title of the course you want delete</mat-label>
+                <input matInput formControlName="title" />
+                @if(myForm.get('title')?.hasError('required')){
+                <mat-error>
+                    title is required.
+                </mat-error>}
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="myForm.invalid">
+                delete
+            </button>
+        </mat-card-actions>
+
+    </mat-card>
+</form>
+
+}
+
+@if(updateFlag && !isForbidden){
+    <form [formGroup]="myForm" (ngSubmit)="onSubmitUpdate()" class="form-container">
+        <mat-card>
+            <mat-card-content>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>id</mat-label>
+                    <input matInput formControlName="id" />
+                    @if(myForm.get('id')?.hasError('required')){
+                    <mat-error>
+                        title is required.
+                    </mat-error>}
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Title</mat-label>
+                    <input matInput formControlName="title" />
+                    @if(myForm.get('title')?.hasError('required')){
+                    <mat-error>
+                        title is required.
+                    </mat-error>}
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>content</mat-label>
+                    <input matInput type="text" formControlName="content" />
+                    @if(myForm.get('content')?.hasError('required')){
+                    <mat-error>
+                        Password is required.
+                    </mat-error>}
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit" [disabled]="myForm.invalid">
+                    update
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+}
+
+@if(isForbidden){
+    <div>you are forbidden do this action</div>
+} -->

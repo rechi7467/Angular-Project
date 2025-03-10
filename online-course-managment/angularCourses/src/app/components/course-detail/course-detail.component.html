@@ -1,0 +1,90 @@
+<!-- <p>course-detail works!</p>
+
+
+
+
+
+@if(course){
+<mat-card>
+    <mat-card-title>{{ course.title }}</mat-card-title>
+    <mat-card-content>
+        <p>{{ course.description }}</p>
+
+        lessons:
+        @for(lesson of lessons; track lesson.id){
+        <div>{{lesson.title}} {{lesson.id}}</div>
+        
+        }@empty {
+        <div>there isnt lessons</div>
+        }
+
+        <button mat-raised-button color="primary" (click)="joinCourse(course.id)">Enroll</button>
+        <button mat-raised-button color="primary" (click)="leaveCourse(course.id)">unEnroll</button>
+    </mat-card-content>
+</mat-card>
+
+@if(isJoined){
+    <div>you joined successfully</div>
+}
+
+@if(isLeave){
+    <div>you leaved successfully</div>
+}
+
+}
+ -->
+ @if(course) {
+    <div class="course-detail-container">
+      <mat-card class="course-card">
+        <mat-card-title>
+          <mat-icon>book</mat-icon> {{ course.title }}
+        </mat-card-title>
+        <mat-card-content>
+          <p class="course-description">{{ course.description }}</p>
+  
+          <h3>📖 Lessons</h3>
+          <mat-list>
+            @for(lesson of lessons; track lesson.id) {
+              <mat-list-item>
+                <mat-icon matListIcon>play_circle</mat-icon>
+                {{ lesson.title }}
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            }
+            @empty {
+              <mat-list-item>
+                <mat-icon matListIcon>error</mat-icon>
+                <span class="no-lessons">There are no lessons available.</span>
+              </mat-list-item>
+            }
+          </mat-list>
+  
+          <div class="button-group">
+            <button mat-raised-button color="primary" (click)="joinCourse(course.id)">
+              <mat-icon>how_to_reg</mat-icon> Enroll
+            </button>
+            <button mat-raised-button color="warn" (click)="leaveCourse(course.id)">
+              <mat-icon>cancel</mat-icon> Unenroll
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+  
+      @if(isJoined) {
+        <mat-card class="success-card">
+          <mat-card-content>
+            <mat-icon color="primary">check_circle</mat-icon> You have joined successfully!
+          </mat-card-content>
+        </mat-card>
+      }
+  
+      @if(isLeave) {
+        <mat-card class="warning-card">
+          <mat-card-content>
+            <mat-icon color="warn">warning</mat-icon> You have left the course.
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+  }
+  

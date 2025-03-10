@@ -1,0 +1,104 @@
+ @if(!register && !isLogin){<button mat-button (click)="registerFunc()">register</button>}
+@if(!login && !isLogin){<button mat-button (click)="loginFunc()">login</button>}
+
+@if(login && !isLogin){
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form-container">
+    <mat-card>
+        <mat-card-content>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" />
+                @if(myForm.get('email')?.hasError('required')){
+                <mat-error>
+                    Email is required.
+                </mat-error>}
+                @if(myForm.get('email')?.hasError('email')){
+                <mat-error>
+                    Please enter a valid email address.
+                </mat-error>}
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" />
+                @if(myForm.get('password')?.hasError('required')){
+                <mat-error>
+                    Password is required.
+                </mat-error>}
+                @if(myForm.get('password')?.hasError('minlength')){
+                <mat-error>
+                    Password must be at least 6 characters long.
+                </mat-error>}
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="myForm.invalid">
+                login
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>
+}
+
+@if(register && !isLogin){
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form-container">
+    <mat-card>
+        <mat-card-content>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="name" />
+                @if(myForm.get('name')?.hasError('required')){
+                <mat-error>
+                    Username is required.
+                </mat-error>}
+                @if(myForm.get('name')?.hasError('minlength')){
+                <mat-error>
+                    Username must be at least 3 characters long.
+                </mat-error>}
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" />
+                @if(myForm.get('email')?.hasError('required')){
+                <mat-error>
+                    Email is required.
+                </mat-error>}
+                @if(myForm.get('email')?.hasError('email')){
+                <mat-error>
+                    Please enter a valid email address.
+                </mat-error>}
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" />
+                @if(myForm.get('password')?.hasError('required')){
+                <mat-error>
+                    Password is required.
+                </mat-error>}
+                @if(myForm.get('password')?.hasError('minlength')){
+                <mat-error>
+                    Password must be at least 6 characters long.
+                </mat-error>}
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>role</mat-label>
+                <input matInput type="text" formControlName="role" />
+                
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="myForm.invalid">
+                Register
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>
+}
+
+@if(isLogin){
+  <div>you are conected</div>
+}

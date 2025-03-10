@@ -1,0 +1,29 @@
+.navbar {
+    display: flex;
+    justify-content: flex-start; /* למקם את הניווט בצד שמאל */
+    align-items: center; /* למרכז אלמנטים אנכית */
+    padding: 10px 20px; /* הוספת רווחים סביב הניווט */
+    background-color: #f4f4f4; /* צבע רקע */
+    border-bottom: 2px solid #ddd; /* גבול תחתון */
+  }
+  
+  .navbar a {
+    margin-right: 15px; /* רווח בין הקישורים */
+    text-decoration: none; /* הסרת קו תחתון */
+    color: #1976d2; /* צבע קישורים */
+    font-weight: 500; /* משקל גופן */
+  }
+  
+  .navbar a:hover {
+    color: #1565c0; /* צבע קישור כאשר העכבר מעל */
+  }
+  
+  .navbar a.active {
+    font-weight: bold; /* עיצוב הקישור הפעיל */
+    color: #0d47a1; /* צבע נוסף לקישור הפעיל */
+  }
+  
+  .router-outlet {
+    margin-top: 20px; /* רווח בין הניווט לתוכן התצוגה */
+  }
+  

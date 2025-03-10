@@ -1,0 +1,23 @@
+.courses-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .courses-card {
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+  }
+  
+  .course-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: #3f51b5;
+    transition: color 0.3s ease;
+  }
+  
+  .course-link:hover {
+    color: #1e88e5;
+  }
+  

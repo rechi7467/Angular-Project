@@ -1,29 +1,66 @@
-.navbar {
+/* .navbar {
     display: flex;
-    justify-content: flex-start; /* למקם את הניווט בצד שמאל */
-    align-items: center; /* למרכז אלמנטים אנכית */
-    padding: 10px 20px; /* הוספת רווחים סביב הניווט */
-    background-color: #f4f4f4; /* צבע רקע */
-    border-bottom: 2px solid #ddd; /* גבול תחתון */
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f4f4f4; 
+    border-bottom: 2px solid #ddd;
   }
   
   .navbar a {
-    margin-right: 15px; /* רווח בין הקישורים */
-    text-decoration: none; /* הסרת קו תחתון */
-    color: #1976d2; /* צבע קישורים */
-    font-weight: 500; /* משקל גופן */
+    margin-right: 15px; 
+    text-decoration: none; 
+    color: #1976d2; 
+    font-weight: 500; 
   }
   
   .navbar a:hover {
-    color: #1565c0; /* צבע קישור כאשר העכבר מעל */
+    color: #1565c0; 
   }
   
   .navbar a.active {
-    font-weight: bold; /* עיצוב הקישור הפעיל */
-    color: #0d47a1; /* צבע נוסף לקישור הפעיל */
+    font-weight: bold;
+    color: #0d47a1;
   }
   
   .router-outlet {
-    margin-top: 20px; /* רווח בין הניווט לתוכן התצוגה */
+    margin-top: 20px; 
   }
-  
+   */
+
+   .navbar {
+    display: flex;
+    justify-content: center; /* למקם את הניווט במרכז */
+    align-items: center; /* למרכז אלמנטים אנכית */
+    padding: 15px 40px; /* הוספת רווחים סביב הניווט */
+    background: linear-gradient(90deg, #cb119c, #fc25f8); /* גרדיאנט צבעים */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* צל עדין */
+    
+}
+
+.navbar a {
+    margin: 0 20px; /* רווח בין הקישורים */
+    text-decoration: none; /* הסרת קו תחתון */
+    color: #ffffff; /* צבע קישורים בהיר */
+    font-weight: 600; /* משקל גופן */
+    padding: 10px 15px; /* רווח פנימי לקישורים */
+    border-radius: 5px; /* פינות מעוגלות לקישורים */
+    transition: background-color 0.3s, transform 0.3s; /* מעבר חלק לצבע */
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* צבע רקע שקוף כאשר העכבר מעל */
+    color: #ffffff; /* צבע טקסט כאשר העכבר מעל */
+    transform: scale(1.05); /* הגדלה קלה כאשר העכבר מעל */
+}
+
+.navbar a.active {
+    font-weight: bold; /* עיצוב הקישור הפעיל */
+    background-color: #fb0097; /* צבע רקע לקישור פעיל */
+    color: #ffffff; /* צבע טקסט לקישור פעיל */
+    border: 2px solid #ead8de; /* גבול לקישור פעיל */
+}
+
+.router-outlet {
+    margin-top: 20px; /* רווח בין הניווט לתוכן התצוגה */
+}

@@ -1,4 +1,4 @@
-mat-form-field {
+/* mat-form-field {
     margin-right: 12px;
   }
 
@@ -19,7 +19,60 @@ mat-form-field {
   }
   .button-container {
     display: flex;
-    justify-content: center; /* Centers horizontally */
-     align-items: center;    /* Centers vertically */
-     height: 100vh;       /*   Sets container height to full viewport */
-   } 
+    justify-content: center; 
+     align-items: center;    
+     height: 100vh;       
+   }  */
+   .form-container {
+    color: #ffffff;
+    max-width: 400px; /* רוחב מקסימלי לטופס */
+    margin: 20px auto; /* מרכז את הטופס */
+    padding: 20px; /* רווח פנימי */
+    
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* צל עדין */
+    background-color: #ffffff; /* צבע רקע לבן */
+}
+
+mat-card {
+    border-radius: 10px; /* פינות מעוגלות לכרטיס */
+    box-shadow: none; /* הסרת צל מהכרטיס */
+}
+
+mat-form-field {
+    width: 100%; /* רוחב מלא עבור שדות הקלט */
+    margin-bottom: 15px; /* רווח בין השדות */
+}
+
+mat-error {
+    color: #e74c3c; /* צבע טקסט שגיאה */
+}
+
+button {
+    width: 100%; /* כפתור ברוחב מלא */
+    margin-top: 10px; /* רווח עליון בין הכפתור לשדות */
+    border-radius: 5px; /* פינות מעוגלות לכפתור */
+    background-color: #cb119c; /* צבע רקע תואם ל-navbar */
+    color: #ffffff; /* צבע טקסט לבן */
+    transition: background-color 0.3s, transform 0.3s; /* מעבר חלק לצבע */
+}
+
+button:hover {
+    background-color: #fb0097; /* צבע רקע כאשר העכבר מעל */
+    transform: scale(1.05); /* הגדלה קלה כאשר העכבר מעל */
+      max-width: 100%; /* ודא שהקונטיינר לא חורג מהרוחב */
+      overflow: hidden; /* הוספת overflow יכול לעזור להסתיר תוכן חורג */
+}
+
+button:disabled {
+    background-color: #bdc3c7; /* צבע רקע כאשר הכפתור מושבת */
+}
+#isLogged{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+  font-weight: bolder;
+  font-size: 30px;
+  background-color: #fbd9f2;
+}

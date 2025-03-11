@@ -1,4 +1,4 @@
-.date-card {
+ /* .date-card {
     width: fit-content;
     padding: 10px 20px;
     margin: 20px auto;
@@ -20,3 +20,42 @@
     gap: 8px;
   }
   
+   */
+   .date-card {
+    background-color: #ffffff; /* צבע רקע לבן */
+    border-radius: 15px; /* פינות מעוגלות */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* צל עדין */
+    margin: 20px; /* רווח סביב הכרטיס */
+    padding: 20px; /* רווח פנימי */
+    transition: transform 0.3s; /* מעבר חלק להגדלה */
+}
+
+.date-card:hover {
+    transform: scale(1.02); /* הגדלה קלה כאשר העכבר מעל */
+}
+
+.date-text {
+    font-size: 18px; /* גודל טקסט */
+    color: #fc08c3; /* צבע טקסט כהה */
+    display: flex; /* שימוש ב-flexbox */
+    align-items: center; /* מרכז אנכי של התוכן */
+}
+
+.date-text mat-icon {
+    margin-right: 8px; /* רווח בין האייקון לטקסט */
+    color: #fc08c3; /* צבע האייקון כחול */
+}
+
+button {
+    background-color: #fc08c3; /* צבע רקע כפתור כחול */
+    color: #f7a4d7; /* צבע טקסט לבן */
+    border: none; /* הסרת גבול */
+    border-radius: 5px; /* פינות מעוגלות */
+    padding: 10px 15px; /* רווח פנימי */
+    cursor: pointer; /* שינוי סמן לעכבר */
+    transition: background-color 0.3s; /* מעבר חלק לצבע */
+}
+
+button:hover {
+    background-color: #ff00c3; /* צבע רקע כהה יותר כאשר העכבר מעל */
+}
